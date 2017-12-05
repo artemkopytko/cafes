@@ -8,5 +8,9 @@
   <ItemGroup>
     <Folder Include="ItalianDishes\" />
     <Folder Include="AsianDishes\" />
+    <Folder Include="Ingredients\" />
+    <Folder Include="Ingredients\Common\" />
+    <Folder Include="Ingredients\Italian\" />
+    <Folder Include="Ingredients\Asian\" />
   </ItemGroup>
 </Project>
