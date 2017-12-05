@@ -7,5 +7,6 @@
 
   <ItemGroup>
     <Folder Include="ItalianDishes\" />
+    <Folder Include="AsianDishes\" />
   </ItemGroup>
 </Project>
