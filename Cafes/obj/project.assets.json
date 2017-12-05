@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.0": {
       "Microsoft.NETCore.App/2.0.0": {
@@ -2273,7 +2273,8 @@
     ]
   },
   "packageFolders": {
-    "/Users/artemkopytko/.nuget/packages/": {}
+    "/Users/artemkopytko/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
@@ -2281,15 +2282,30 @@
       "projectUniqueName": "/Users/artemkopytko/University/Cafes/Cafes/Cafes.csproj",
       "projectName": "Cafes",
       "projectPath": "/Users/artemkopytko/University/Cafes/Cafes/Cafes.csproj",
+      "packagesPath": "/Users/artemkopytko/.nuget/packages/",
       "outputPath": "/Users/artemkopytko/University/Cafes/Cafes/obj",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "/Users/artemkopytko/.config/NuGet/NuGet.Config"
+      ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {}
         }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
       }
     },
     "frameworks": {
@@ -2298,12 +2314,15 @@
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.0.0"
+            "version": "2.0.0",
+            "autoReferenced": true
           }
         },
         "imports": [
           "net461"
-        ]
+        ],
+        "assetTargetFallback": true,
+        "warn": true
       }
     },
     "runtimes": {
