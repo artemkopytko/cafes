@@ -34,5 +34,15 @@ namespace Cafes
         public ItalianCafe()
         {
         }
+        public override void CookFirst() {
+            
+        }
+        public override void CookSecond() {
+            
+        }
+        public override void CookDesert() {
+            
+        }
+
     }
 }
