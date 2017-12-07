@@ -7,6 +7,9 @@ namespace Cafes
 {
     public class Ingredient
     {
+        protected string name = "";
+        protected double price = 0.0;
+
         public Ingredient()
         {
         }

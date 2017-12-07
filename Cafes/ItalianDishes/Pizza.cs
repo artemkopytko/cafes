@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Cafes.ItalianDishes
 {
-    public class Pizza
+    public class Pizza: Dish
     {
         public Pizza()
         {

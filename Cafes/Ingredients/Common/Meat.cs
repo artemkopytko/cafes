@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Cafes.Ingredients
 {
-    public class Meat
+    public class Meat: Ingredient
     {
         public Meat()
         {

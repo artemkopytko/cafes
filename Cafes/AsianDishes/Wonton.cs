@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Cafes.AsianDishes
 {
-    public class Wonton
+    public class Wonton: Dish
     {
         public Wonton()
         {
