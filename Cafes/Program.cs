@@ -1,6 +1,7 @@
 ﻿using System;
 using Cafes.ItalianDishes;
 using Cafes.AsianDishes;
+using System.Collections.Generic;
 
 namespace Cafes
 {
@@ -16,20 +17,21 @@ namespace Cafes
             do
             {
                 Console.WriteLine("Choose cafe you want to visit");
-                Console.WriteLine("1)Asian\t\t2)Italian");
+                Console.WriteLine("1)Italian\t\t2)Asian");
                 chosenCafe = Console.ReadLine();
                 Console.WriteLine(chosenCafe);
             } while (chosenCafe != "1" && chosenCafe != "2");
             if (chosenCafe == "1")
             {
                 Dish minestrone = new Minestrone();
+                Dish pizza = new Pizza();
+                Dish tiramisu = new Tiramisu();
+                List<Dish> italianDishes = new List<Dish> { minestrone, pizza, tiramisu };
                 PrintLine();
-                Console.WriteLine("Welcome to asian cafe!");
+                Console.WriteLine("Welcome to italian cafe!");
                 Console.WriteLine("Your menu: ");
-                //Console.WriteLine("{0,-15}{1,-15}", "Product", "Price");
-                PrintMenuHeading();
-                PrintMenuItem(minestrone);
-                //Console.WriteLine("{0,-15}{1,-15}", minestrone.GetDishName(), minestrone.GetPrice(minestrone.GetIngredients()).ToString());
+
+                PrintMenu(italianDishes);
             }
 
             //for (int i = 0; i < 25; i += 1)
@@ -56,6 +58,17 @@ namespace Cafes
 
             //Console.ReadLine();
 
+            void PrintMenu(List<Dish> dishes)
+            {
+                PrintMenuHeading();
+
+                foreach (Dish dishItem in dishes)
+                {
+                    PrintMenuItem(dishItem);
+                }
+
+                PrintMenuEnding();
+            }
             void PrintMenuHeading()
             {
                 Console.WriteLine("----------------------------------");
@@ -66,9 +79,13 @@ namespace Cafes
                 Console.WriteLine("| {0,-15}{1,-15} |", dish.GetDishName(), dish.GetPrice(dish.GetIngredients()).ToString());
 
             }
+            void PrintMenuEnding()
+            {
+                Console.WriteLine("----------------------------------");
+            }
             void PrintLine()
             {
-                Console.WriteLine("=========================");
+                Console.WriteLine("==================================");
             }
         }
 
