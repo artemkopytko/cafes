@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Cafes.Ingredients
+namespace Cafes.Ingredients.Italian
 {
     public class Sauce : Ingredient
     {
