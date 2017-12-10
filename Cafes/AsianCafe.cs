@@ -40,7 +40,7 @@ namespace Cafes
         }
         public override void CookSecond()
         {
-            Console.WriteLine("Dim Sum is ready");
+            Console.WriteLine("Dimsum is ready");
         }
         public override void CookDesert()
         {
