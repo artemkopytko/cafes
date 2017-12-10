@@ -36,15 +36,15 @@ namespace Cafes
         }
         public override void CookFirst()
         {
-            Console.WriteLine("soup cooked");
+            Console.WriteLine("Minestrone is ready");
         }
         public override void CookSecond()
         {
-            Console.WriteLine("pizza cooked");
+            Console.WriteLine("Pizza is ready");
         }
         public override void CookDesert()
         {
-
+            Console.WriteLine("Tiramisu is ready");
         }
 
     }

@@ -36,15 +36,15 @@ namespace Cafes
         }
         public override void CookFirst()
         {
-
+            Console.WriteLine("Wonton is ready");
         }
         public override void CookSecond()
         {
-
+            Console.WriteLine("Dim Sum is ready");
         }
         public override void CookDesert()
         {
-
+            Console.WriteLine("Mooncake is ready");
         }
     }
 }
