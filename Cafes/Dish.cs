@@ -50,6 +50,5 @@ namespace Cafes
             Console.WriteLine("Dressing is ready");
         }
 
-        /* METHODS HERE */
     }
 }
