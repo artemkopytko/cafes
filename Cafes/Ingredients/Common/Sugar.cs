@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Cafes.Ingredients
+namespace Cafes.Ingredients.Common
 {
     public class Sugar : Ingredient
     {

@@ -10,6 +10,11 @@ namespace Cafes
         protected string name = "";
         protected double price = 0.0;
 
+        public double GetPrice()
+        {
+            return this.price;
+        }
+
         public Ingredient()
         {
         }

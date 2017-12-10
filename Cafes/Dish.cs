@@ -50,5 +50,15 @@ namespace Cafes
             Console.WriteLine("Dressing is ready");
         }
 
+        public double GetPrice(List<Ingredient> ingredients)
+        {
+            double totalPrice = 0.0;
+            foreach (var ingredient in ingredients)
+            {
+                totalPrice += ingredient.GetPrice();
+            }
+            return totalPrice;
+        }
+
     }
 }

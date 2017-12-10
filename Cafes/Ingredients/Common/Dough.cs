@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Cafes.Ingredients.Italian
+namespace Cafes.Ingredients.Common
 {
     public class Dough : Ingredient
     {
