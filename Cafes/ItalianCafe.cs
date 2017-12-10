@@ -15,13 +15,13 @@ namespace Cafes
 
             switch (type)
             {
-                case "Минестроне":
+                case "Minestrone":
                     dish = new Minestrone();
                     break;
-                case "Пицца":
+                case "Pizza":
                     dish = new Pizza();
                     break;
-                case "Тирамису":
+                case "Tiramisu":
                     dish = new Tiramisu();
                     break;
                 default:

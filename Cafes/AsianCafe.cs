@@ -15,13 +15,13 @@ namespace Cafes
 
             switch (type)
             {
-                case "Вонтон":
+                case "Wonton":
                     dish = new Wonton();
                     break;
-                case "Димсам":
+                case "Dimsum":
                     dish = new Dimsum();
                     break;
-                case "Лунный кекс":
+                case "Mooncake":
                     dish = new Mooncake();
                     break;
                 default:

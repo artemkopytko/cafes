@@ -10,7 +10,7 @@ namespace Cafes.AsianDishes
         public Dimsum()
         {
 
-            name = "Dim Sum";
+            name = "Dimsum";
             ingredients.Add(new Shrimps());
             ingredients.Add(new Dough());
             ingredients.Add(new Spice());

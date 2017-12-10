@@ -16,9 +16,6 @@ namespace Cafes
             Thread.Sleep(dish.GetCookingTime() * 100);
             dish.CookFilling();
             dish.CookDressing();
-            /* DISH CREATION METHODS*/
-            //dish. ;
-            //dish. ;
 
             return dish;
         }
