@@ -15,6 +15,7 @@ namespace Cafes
 
             Cafe italianCafe = new ItalianCafe();
             Cafe asianCafe = new AsianCafe();
+            List<Dish> chosenDishes = new List<Dish>();
             String chosenCafe = "";
             String chosenDish = "";
             String extraDish = "";
@@ -31,14 +32,13 @@ namespace Cafes
                 Dish pizza = new Pizza();
                 Dish tiramisu = new Tiramisu();
                 List<Dish> italianDishes = new List<Dish> { minestrone, pizza, tiramisu };
-                List<Dish> chosenDishes = new List<Dish>();
 
                 PrintLine();
                 PrintCafeWelcome("italian");
 
             chooseItalianDish:
-                PrintMenu(italianDishes);
 
+                PrintMenu(italianDishes);
                 Console.WriteLine();
 
                 do
@@ -62,7 +62,7 @@ namespace Cafes
                 }
                 else
                 {
-
+                    PrintCheckout(chosenDishes);
                 }
 
             }
@@ -75,14 +75,35 @@ namespace Cafes
 
                 PrintLine();
                 PrintCafeWelcome("asian");
-                PrintMenu(asianDishes);
 
+            chooseAsianDish:
+
+                PrintMenu(asianDishes);
                 Console.WriteLine();
+
                 do
                 {
                     Console.Write("Your choice: ");
                     chosenDish = Console.ReadLine();
                 } while (chosenDish != "0" && chosenDish != "1" && chosenDish != "2" && chosenDish != "3");
+                int resultCode = HandleDishChoice(asianDishes, chosenDish);
+                if (resultCode == 0)
+                {
+                    goto chooseCafe;
+                }
+                chosenDishes.Add(asianDishes[resultCode - 1]);
+                Console.WriteLine("Something else? (y/n)");
+
+                extraDish = Console.ReadLine();
+
+                if (extraDish == "y")
+                {
+                    goto chooseAsianDish;
+                }
+                else
+                {
+                    PrintCheckout(chosenDishes);
+                }
 
             }
 
@@ -143,7 +164,7 @@ namespace Cafes
             }
             void PrintMenuHeading()
             {
-                Console.WriteLine("----------------------------------");
+                Console.WriteLine("-----------------------------------");
                 Console.WriteLine("| {0,-2}{1,-15}{2,-15} |", "№", "Product", "Price");
             }
             void PrintMenuItem(Dish dish, int ind)
@@ -153,7 +174,7 @@ namespace Cafes
             }
             void PrintMenuEnding()
             {
-                Console.WriteLine("----------------------------------");
+                Console.WriteLine("-----------------------------------");
             }
             void PrintLine()
             {
@@ -176,6 +197,24 @@ namespace Cafes
                     PrintDishChoice(dishes[Int32.Parse(dishChoice) - 1]);
                     return Int32.Parse(dishChoice);
                 }
+            }
+            void PrintCheckout(List<Dish> orderedDishes)
+            {
+                PrintLine();
+                Console.WriteLine("Here is your check");
+                Console.WriteLine();
+                Console.WriteLine("-----------------------------------");
+                Console.WriteLine("| {0,-2}{1,-15}{2,-10}{3,-5} |", "№", "Product", "Price", "Sum");
+                int index = 0;
+                double totalPrice = 0.0;
+                foreach (Dish dish in orderedDishes)
+                {
+                    ++index;
+                    totalPrice += dish.GetPrice(dish.GetIngredients());
+                    Console.WriteLine("| {0,-2}{1,-15}{2,-10}{3,-5} |", index.ToString(), dish.GetDishName(), dish.GetPrice(dish.GetIngredients()).ToString(), totalPrice);
+                }
+                Console.WriteLine("| {0,-27}{1,-5} |", "Total sum ", totalPrice.ToString());
+                Console.WriteLine("-----------------------------------");
             }
 
             void LeaveCafe()
