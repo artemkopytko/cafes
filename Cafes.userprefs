@@ -1,26 +1,30 @@
 ﻿<Properties StartupConfiguration="{C17DEC5A-C84E-443C-8E34-29E43E17193A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Cafes/ItalianCafe.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Cafes/Ingredients/Common/Chocolate.cs">
     <Files>
       <File FileName="Cafes/Ingredients/Asian/Shrimps.cs" Line="7" Column="10" />
-      <File FileName="Cafes/AsianDishes/Dimsum.cs" Line="2" Column="31" />
+      <File FileName="Cafes/AsianDishes/Dimsum.cs" Line="2" Column="1" />
       <File FileName="Cafes/Dish.cs" Line="59" Column="14" />
       <File FileName="Cafes/Ingredients/Italian/Salami.cs" Line="9" Column="23" />
       <File FileName="Cafes/Ingredient.cs" Line="20" Column="10" />
       <File FileName="Cafes/Ingredients/Asian/Paste.cs" Line="10" Column="34" />
-      <File FileName="Cafes/Ingredients/Common/Dough.cs" Line="10" Column="10" />
+      <File FileName="Cafes/Ingredients/Common/Dough.cs" Line="9" Column="25" />
       <File FileName="Cafes/Ingredients/Common/Flour.cs" Line="2" Column="35" />
       <File FileName="Cafes/Ingredients/Common/Grass.cs" Line="2" Column="35" />
       <File FileName="Cafes/Ingredients/Common/Meat.cs" Line="2" Column="35" />
       <File FileName="Cafes/Ingredients/Common/Spice.cs" Line="2" Column="35" />
       <File FileName="Cafes/Ingredients/Common/Sugar.cs" Line="2" Column="35" />
       <File FileName="Cafes/Ingredients/Common/Water.cs" Line="1" Column="14" />
-      <File FileName="Cafes/Ingredients/Italian/Cheese.cs" Line="12" Column="2" />
-      <File FileName="Cafes/Ingredients/Italian/Sauce.cs" Line="13" Column="1" />
-      <File FileName="Cafes/AsianDishes/Mooncake.cs" Line="9" Column="6" />
-      <File FileName="Cafes/AsianDishes/Wonton.cs" Line="4" Column="30" />
-      <File FileName="Cafes/AsianCafe.cs" Line="23" Column="27" />
+      <File FileName="Cafes/Ingredients/Italian/Cheese.cs" Line="2" Column="36" />
+      <File FileName="Cafes/Ingredients/Italian/Sauce.cs" Line="3" Column="2" />
+      <File FileName="Cafes/AsianDishes/Mooncake.cs" Line="18" Column="43" />
+      <File FileName="Cafes/AsianDishes/Wonton.cs" Line="10" Column="10" />
+      <File FileName="Cafes/AsianCafe.cs" Line="39" Column="36" />
       <File FileName="Cafes/Cafe.cs" Line="21" Column="26" />
-      <File FileName="Cafes/ItalianCafe.cs" Line="21" Column="14" />
+      <File FileName="Cafes/ItalianCafe.cs" Line="39" Column="42" />
+      <File FileName="Cafes/ItalianDishes/Minestrone.cs" Line="16" Column="32" />
+      <File FileName="Cafes/ItalianDishes/Pizza.cs" Line="22" Column="2" />
+      <File FileName="Cafes/ItalianDishes/Tiramisu.cs" Line="13" Column="38" />
+      <File FileName="Cafes/Ingredients/Common/Chocolate.cs" Line="8" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
