@@ -32,23 +32,14 @@ namespace Cafes
         }
         public abstract void CookFirst();
 
-        public virtual void ServeFirst()
-        {
-            Console.WriteLine("Подаем первое");
-        }
+        public abstract void ServeFirst();
 
         public abstract void CookSecond();
 
-        public virtual void ServeSecond()
-        {
-            Console.WriteLine("Подаем второе");
-        }
+        public abstract void ServeSecond();
 
         public abstract void CookDesert();
 
-        public virtual void ServeDesert()
-        {
-            Console.WriteLine("Подаем десерт");
-        }
+        public abstract void ServeDesert();
     }
 }

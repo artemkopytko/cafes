@@ -19,13 +19,16 @@ namespace Cafes
             String chosenCafe = "";
             String chosenDish = "";
             String extraDish = "";
+            String payForOrder = "";
         chooseCafe:
+            chosenDishes.Clear();
             do
             {
                 Console.WriteLine("Choose cafe you want to visit");
                 Console.WriteLine("1)Italian\t\t2)Asian");
+                Console.WriteLine("0)Go away from the cafes");
                 chosenCafe = Console.ReadLine();
-            } while (chosenCafe != "1" && chosenCafe != "2");
+            } while (chosenCafe != "0" && chosenCafe != "1" && chosenCafe != "2");
             if (chosenCafe == "1")
             {
                 Dish minestrone = new Minestrone();
@@ -39,32 +42,79 @@ namespace Cafes
             chooseItalianDish:
 
                 PrintMenu(italianDishes);
-                Console.WriteLine();
+                Console.WriteLine("0) I want nothing\n");
 
                 do
                 {
                     Console.Write("Your choice: ");
                     chosenDish = Console.ReadLine();
                 } while (chosenDish != "0" && chosenDish != "1" && chosenDish != "2" && chosenDish != "3");
+                if (chosenDish == "0")
+                {
+                    if (chosenDishes.Count > 0)
+                    {
+                        goto italianCheckout;
+                    }
+                    else
+                    {
+                        Console.WriteLine("What a pity!\n" +
+                                          "Hoping to see you again...");
+                        goto chooseCafe;
+                    }
+                }
+
                 int resultCode = HandleDishChoice(italianDishes, chosenDish);
                 if (resultCode == 0)
                 {
+
                     goto chooseCafe;
                 }
                 chosenDishes.Add(italianDishes[resultCode - 1]);
-                Console.WriteLine("Something else? (y/n)");
-
-                extraDish = Console.ReadLine();
-
+                do
+                {
+                    Console.WriteLine("Something else? (y/n)");
+                    extraDish = Console.ReadLine();
+                } while (extraDish != "y" && extraDish != "n");
                 if (extraDish == "y")
                 {
                     goto chooseItalianDish;
                 }
-                else
+            italianCheckout:
+                PrintCheckout(chosenDishes);
+                do
                 {
-                    PrintCheckout(chosenDishes);
+                    Console.WriteLine("Pay for an order? (y/n)");
+                    payForOrder = Console.ReadLine();
+                } while (payForOrder != "y" && payForOrder != "n");
+                if (payForOrder == "n")
+                {
+                    PrintNotPaid();
+                    goto chooseCafe;
                 }
-
+                Console.WriteLine("Great to hear!");
+                Console.WriteLine("We've alreay started cooking your meal!\n\n");
+                foreach (Dish dish in chosenDishes)
+                {
+                    italianCafe.GetDish(dish.GetDishName());
+                    switch (dish.GetDishName())
+                    {
+                        case "Minestrone":
+                            italianCafe.CookFirst();
+                            italianCafe.ServeFirst();
+                            break;
+                        case "Pizza":
+                            italianCafe.CookSecond();
+                            italianCafe.ServeSecond();
+                            break;
+                        case "Tiramisu":
+                            italianCafe.CookDesert();
+                            italianCafe.ServeDesert();
+                            break;
+                        default:
+                            Console.WriteLine("Error");
+                            break;
+                    }
+                }
             }
             else if (chosenCafe == "2")
             {
@@ -79,32 +129,70 @@ namespace Cafes
             chooseAsianDish:
 
                 PrintMenu(asianDishes);
-                Console.WriteLine();
+                Console.WriteLine("0) I want nothing\n");
 
                 do
                 {
                     Console.Write("Your choice: ");
                     chosenDish = Console.ReadLine();
                 } while (chosenDish != "0" && chosenDish != "1" && chosenDish != "2" && chosenDish != "3");
+                if (chosenDish == "0")
+                {
+                    if (chosenDishes.Count > 0)
+                    {
+                        goto asianCheckout;
+                    }
+                    else
+                    {
+                        Console.WriteLine("What a pity!\n" +
+                                          "Hoping to see you again...");
+                        goto chooseCafe;
+                    }
+                }
                 int resultCode = HandleDishChoice(asianDishes, chosenDish);
                 if (resultCode == 0)
                 {
+
                     goto chooseCafe;
+
                 }
                 chosenDishes.Add(asianDishes[resultCode - 1]);
-                Console.WriteLine("Something else? (y/n)");
-
-                extraDish = Console.ReadLine();
-
+                do
+                {
+                    Console.WriteLine("Something else? (y/n)");
+                    extraDish = Console.ReadLine();
+                } while (extraDish != "y" && extraDish != "n");
                 if (extraDish == "y")
                 {
                     goto chooseAsianDish;
                 }
-                else
+            asianCheckout:
+                PrintCheckout(chosenDishes);
+
+                do
                 {
-                    PrintCheckout(chosenDishes);
+                    Console.WriteLine("Pay for an order? (y/n)");
+                    payForOrder = Console.ReadLine();
+                } while (payForOrder != "y" && payForOrder != "n");
+                if (payForOrder == "n")
+                {
+                    PrintNotPaid();
+                    goto chooseCafe;
+                }
+                Console.WriteLine("Great to hear!");
+                Console.WriteLine("We've alreay started cooking your meal!\n\n");
+                foreach (Dish dish in chosenDishes)
+                {
+                    asianCafe.GetDish(dish.GetDishName());
                 }
 
+            }
+            else
+            {
+                Console.WriteLine("I'm not hungry yet");
+                Console.WriteLine("Walking,walking,walking...");
+                Thread.Sleep(2000);
+                goto chooseCafe;
             }
 
             //for (int i = 0; i < 25; i += 1)
@@ -178,7 +266,7 @@ namespace Cafes
             }
             void PrintLine()
             {
-                Console.WriteLine("==================================");
+                Console.WriteLine("***********************************");
             }
             void PrintDishChoice(Dish dish)
             {
@@ -216,7 +304,12 @@ namespace Cafes
                 Console.WriteLine("| {0,-27}{1,-5} |", "Total sum ", totalPrice.ToString());
                 Console.WriteLine("-----------------------------------");
             }
-
+            void PrintNotPaid()
+            {
+                Console.WriteLine("What a pity...");
+                Console.WriteLine("Hope to see you again!");
+                Console.WriteLine("Have a nice day");
+            }
             void LeaveCafe()
             {
                 Console.WriteLine("Thanks for coming!");

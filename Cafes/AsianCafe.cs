@@ -38,13 +38,26 @@ namespace Cafes
         {
             Console.WriteLine("Wonton is ready");
         }
+        public override void ServeFirst()
+        {
+            Console.WriteLine("Wonton is served\n");
+        }
         public override void CookSecond()
         {
             Console.WriteLine("Dimsum is ready");
+        }
+        public override void ServeSecond()
+        {
+            Console.WriteLine("Dimsum is served\n");
         }
         public override void CookDesert()
         {
             Console.WriteLine("Mooncake is ready");
         }
+        public override void ServeDesert()
+        {
+            Console.WriteLine("Mooncake is served\n");
+        }
+
     }
 }

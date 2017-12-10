@@ -26,11 +26,12 @@ namespace Cafes
 
         public void PrintIngredientsList()
         {
-            Console.WriteLine("Ingredients are: ");
+            Console.Write("Ingredients are: ");
             foreach (var ingredient in ingredients)
             {
-                Console.WriteLine(ingredient.GetName());
+                Console.Write(ingredient.GetName() + ", ");
             }
+            Console.WriteLine();
             PrintLine();
         }
         private void PrintLine()
