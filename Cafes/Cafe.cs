@@ -13,9 +13,11 @@ namespace Cafes
 
             dish.Configure();
             dish.CookBase();
-            Thread.Sleep(dish.GetCookingTime() * 100);
+            Thread.Sleep(dish.GetCookingTime() * 50);
             dish.CookFilling();
+            Thread.Sleep(dish.GetCookingTime() * 30);
             dish.CookDressing();
+            Thread.Sleep(dish.GetCookingTime() * 20);
 
             return dish;
         }
