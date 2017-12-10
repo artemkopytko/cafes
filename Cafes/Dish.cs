@@ -29,7 +29,7 @@ namespace Cafes
             Console.WriteLine("Ingredients are: ");
             foreach (var ingredient in ingredients)
             {
-                Console.WriteLine(ingredient);
+                Console.WriteLine(ingredient.GetName());
             }
             PrintLine();
         }

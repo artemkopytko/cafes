@@ -14,7 +14,10 @@ namespace Cafes
         {
             return this.price;
         }
-
+        public string GetName()
+        {
+            return this.name;
+        }
         public Ingredient()
         {
         }
