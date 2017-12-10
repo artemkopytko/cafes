@@ -17,6 +17,7 @@ namespace Cafes
             Cafe asianCafe = new AsianCafe();
             String chosenCafe = "";
             String chosenDish = "";
+            String extraDish = "";
         chooseCafe:
             do
             {
@@ -30,35 +31,40 @@ namespace Cafes
                 Dish pizza = new Pizza();
                 Dish tiramisu = new Tiramisu();
                 List<Dish> italianDishes = new List<Dish> { minestrone, pizza, tiramisu };
+                List<Dish> chosenDishes = new List<Dish>();
 
                 PrintLine();
                 PrintCafeWelcome("italian");
+
+            chooseItalianDish:
                 PrintMenu(italianDishes);
 
                 Console.WriteLine();
+
                 do
                 {
                     Console.Write("Your choice: ");
                     chosenDish = Console.ReadLine();
                 } while (chosenDish != "0" && chosenDish != "1" && chosenDish != "2" && chosenDish != "3");
-                switch (chosenDish)
+                int resultCode = HandleDishChoice(italianDishes, chosenDish);
+                if (resultCode == 0)
                 {
-                    case "0":
-                        LeaveCafe();
-                        goto chooseCafe;
-                    case "1":
-                        PrintDishChoice(minestrone);
-                        break;
-                    case "2":
-                        PrintDishChoice(pizza);
-                        break;
-                    case "3":
-                        PrintDishChoice(tiramisu);
-                        break;
-                    default:
-                        LeaveCafe();
-                        goto chooseCafe;
+                    goto chooseCafe;
                 }
+                chosenDishes.Add(italianDishes[resultCode - 1]);
+                Console.WriteLine("Something else? (y/n)");
+
+                extraDish = Console.ReadLine();
+
+                if (extraDish == "y")
+                {
+                    goto chooseItalianDish;
+                }
+                else
+                {
+
+                }
+
             }
             else if (chosenCafe == "2")
             {
@@ -77,24 +83,7 @@ namespace Cafes
                     Console.Write("Your choice: ");
                     chosenDish = Console.ReadLine();
                 } while (chosenDish != "0" && chosenDish != "1" && chosenDish != "2" && chosenDish != "3");
-                switch (chosenDish)
-                {
-                    case "0":
-                        LeaveCafe();
-                        goto chooseCafe;
-                    case "1":
-                        PrintDishChoice(wonton);
-                        break;
-                    case "2":
-                        PrintDishChoice(dimsum);
-                        break;
-                    case "3":
-                        PrintDishChoice(mooncake);
-                        break;
-                    default:
-                        LeaveCafe();
-                        goto chooseCafe;
-                }
+
             }
 
             //for (int i = 0; i < 25; i += 1)
@@ -175,6 +164,20 @@ namespace Cafes
                 Console.WriteLine(dish.GetDishName() + " is a great choice!");
                 Console.WriteLine("It'll be cooked in a {0} minutes", dish.GetCookingTime());
             }
+            int HandleDishChoice(List<Dish> dishes, string dishChoice)
+            {
+                if (dishChoice == "0")
+                {
+                    LeaveCafe();
+                    return 0;
+                }
+                else
+                {
+                    PrintDishChoice(dishes[Int32.Parse(dishChoice) - 1]);
+                    return Int32.Parse(dishChoice);
+                }
+            }
+
             void LeaveCafe()
             {
                 Console.WriteLine("Thanks for coming!");
