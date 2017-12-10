@@ -2,6 +2,7 @@
 using Cafes.ItalianDishes;
 using Cafes.AsianDishes;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Cafes
 {
@@ -9,17 +10,19 @@ namespace Cafes
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Strarting...");
+
+            PrintCafeOnStart();
+
             Cafe italianCafe = new ItalianCafe();
             Cafe asianCafe = new AsianCafe();
             String chosenCafe = "";
-        start:
+            String chosenDish = "";
+        chooseCafe:
             do
             {
                 Console.WriteLine("Choose cafe you want to visit");
                 Console.WriteLine("1)Italian\t\t2)Asian");
                 chosenCafe = Console.ReadLine();
-                Console.WriteLine(chosenCafe);
             } while (chosenCafe != "1" && chosenCafe != "2");
             if (chosenCafe == "1")
             {
@@ -27,18 +30,82 @@ namespace Cafes
                 Dish pizza = new Pizza();
                 Dish tiramisu = new Tiramisu();
                 List<Dish> italianDishes = new List<Dish> { minestrone, pizza, tiramisu };
+
                 PrintLine();
                 Console.WriteLine("Welcome to italian cafe!");
                 Console.WriteLine("Your menu: ");
 
                 PrintMenu(italianDishes);
+
+                Console.WriteLine();
+                do
+                {
+                    Console.Write("Your choice: ");
+                    chosenDish = Console.ReadLine();
+                } while (chosenDish != "0" && chosenDish != "1" && chosenDish != "2" && chosenDish != "3");
+                switch (chosenDish)
+                {
+                    case "0":
+                        LeaveCafe();
+                        goto chooseCafe;
+                    case "1":
+                        PrintDishChoice(minestrone);
+                        break;
+                    case "2":
+                        PrintDishChoice(pizza);
+                        break;
+                    case "3":
+                        PrintDishChoice(tiramisu);
+                        break;
+                    default:
+                        LeaveCafe();
+                        goto chooseCafe;
+                }
+            }
+            else if (chosenCafe == "2")
+            {
+                Dish wonton = new Wonton();
+                Dish dimsum = new Dimsum();
+                Dish mooncake = new Mooncake();
+                List<Dish> asianDishes = new List<Dish> { wonton, dimsum, mooncake };
+
+                PrintLine();
+                Console.WriteLine("Welcome to asian cafe!");
+                Console.WriteLine("Your menu: ");
+
+                PrintMenu(asianDishes);
+
+                Console.WriteLine();
+                do
+                {
+                    Console.Write("Your choice: ");
+                    chosenDish = Console.ReadLine();
+                } while (chosenDish != "0" && chosenDish != "1" && chosenDish != "2" && chosenDish != "3");
+                switch (chosenDish)
+                {
+                    case "0":
+                        LeaveCafe();
+                        goto chooseCafe;
+                    case "1":
+                        PrintDishChoice(wonton);
+                        break;
+                    case "2":
+                        PrintDishChoice(dimsum);
+                        break;
+                    case "3":
+                        PrintDishChoice(mooncake);
+                        break;
+                    default:
+                        LeaveCafe();
+                        goto chooseCafe;
+                }
             }
 
             //for (int i = 0; i < 25; i += 1)
             //{
             //    Console.WriteLine();
             //}
-            goto start;
+            goto chooseCafe;
             /* TODO : 
              * Логика клиента.
              * Выбираем кафе.
@@ -57,14 +124,28 @@ namespace Cafes
             //Console.WriteLine("\n");
 
             //Console.ReadLine();
-
+            void PrintCafeOnStart()
+            {
+                Console.WriteLine("Cafes are closed...");
+                Thread.Sleep(400);
+                Console.WriteLine("Staff is getting into cafes");
+                Thread.Sleep(700);
+                Console.WriteLine("Tables are being cleared");
+                Thread.Sleep(500);
+                Console.WriteLine("Windows are being washed");
+                Thread.Sleep(700);
+                Console.WriteLine("The door sign is turned");
+                Thread.Sleep(200);
+                Console.WriteLine("Cafes are opened now!");
+            }
             void PrintMenu(List<Dish> dishes)
             {
                 PrintMenuHeading();
-
+                int index = 0;
                 foreach (Dish dishItem in dishes)
                 {
-                    PrintMenuItem(dishItem);
+                    ++index;
+                    PrintMenuItem(dishItem, index);
                 }
 
                 PrintMenuEnding();
@@ -72,11 +153,11 @@ namespace Cafes
             void PrintMenuHeading()
             {
                 Console.WriteLine("----------------------------------");
-                Console.WriteLine("| {0,-15}{1,-15} |", "Product", "Price");
+                Console.WriteLine("| {0,-2}{1,-15}{2,-15} |", "№", "Product", "Price");
             }
-            void PrintMenuItem(Dish dish)
+            void PrintMenuItem(Dish dish, int ind)
             {
-                Console.WriteLine("| {0,-15}{1,-15} |", dish.GetDishName(), dish.GetPrice(dish.GetIngredients()).ToString());
+                Console.WriteLine("| {0,-2}{1,-15}{2,-15} |", ind.ToString(), dish.GetDishName(), dish.GetPrice(dish.GetIngredients()).ToString());
 
             }
             void PrintMenuEnding()
@@ -87,7 +168,16 @@ namespace Cafes
             {
                 Console.WriteLine("==================================");
             }
+            void PrintDishChoice(Dish dish)
+            {
+                Console.WriteLine(dish.GetDishName() + " is a great choice!");
+                Console.WriteLine("It'll be cooked in a {0} minutes", dish.GetCookingTime());
+            }
+            void LeaveCafe()
+            {
+                Console.WriteLine("Thanks for coming!");
+                Console.WriteLine("See you soon!");
+            }
         }
-
     }
 }
