@@ -13,7 +13,7 @@ namespace Cafes.AsianDishes
             ingredients.Add(new Grass());
             ingredients.Add(new Spice());
             ingredients.Add(new Water());
-            cookingTime = "20 minutes";
+            cookingTime = 20;
             price = GetPrice(ingredients);
         }
     }

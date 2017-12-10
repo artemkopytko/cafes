@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+
 namespace Cafes
 {
     abstract public class Cafe
@@ -9,6 +11,11 @@ namespace Cafes
         {
             Dish dish = CreateDish(type);
 
+            dish.Configure();
+            dish.CookBase();
+            Thread.Sleep(dish.GetCookingTime() * 100);
+            dish.CookFilling();
+            dish.CookDressing();
             /* DISH CREATION METHODS*/
             //dish. ;
             //dish. ;

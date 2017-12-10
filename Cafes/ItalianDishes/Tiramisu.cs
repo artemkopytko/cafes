@@ -13,7 +13,7 @@ namespace Cafes.ItalianDishes
             ingredients.Add(new Water());
             ingredients.Add(new Chocolate());
             ingredients.Add(new Flour());
-            cookingTime = "40 minutes";
+            cookingTime = 40;
             price = GetPrice(ingredients);
         }
     }

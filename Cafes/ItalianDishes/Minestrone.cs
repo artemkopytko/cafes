@@ -13,7 +13,7 @@ namespace Cafes.ItalianDishes
             ingredients.Add(new Meat());
             ingredients.Add(new Grass());
             ingredients.Add(new Spice());
-            cookingTime = "30 minutes";
+            cookingTime = 30;
             price = GetPrice(ingredients);
         }
     }

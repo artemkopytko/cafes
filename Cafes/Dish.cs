@@ -10,7 +10,7 @@ namespace Cafes
         protected string name = "";
         protected List<Ingredient> ingredients = new List<Ingredient>();
         protected double price = 0.0;
-        protected string cookingTime = "";
+        protected int cookingTime = 0;
 
         public Dish()
         {
@@ -48,6 +48,10 @@ namespace Cafes
         public void CookDressing()
         {
             Console.WriteLine("Dressing is ready");
+        }
+        public int GetCookingTime()
+        {
+            return this.cookingTime;
         }
 
         public double GetPrice(List<Ingredient> ingredients)

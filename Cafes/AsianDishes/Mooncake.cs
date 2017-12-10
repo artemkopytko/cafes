@@ -14,7 +14,7 @@ namespace Cafes.AsianDishes
             ingredients.Add(new Paste());
             ingredients.Add(new Flour());
             ingredients.Add(new Water());
-            cookingTime = "40 minutes";
+            cookingTime = 40;
             price = GetPrice(ingredients);
         }
     }
