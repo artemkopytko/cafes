@@ -32,9 +32,7 @@ namespace Cafes
                 List<Dish> italianDishes = new List<Dish> { minestrone, pizza, tiramisu };
 
                 PrintLine();
-                Console.WriteLine("Welcome to italian cafe!");
-                Console.WriteLine("Your menu: ");
-
+                PrintCafeWelcome("italian");
                 PrintMenu(italianDishes);
 
                 Console.WriteLine();
@@ -70,9 +68,7 @@ namespace Cafes
                 List<Dish> asianDishes = new List<Dish> { wonton, dimsum, mooncake };
 
                 PrintLine();
-                Console.WriteLine("Welcome to asian cafe!");
-                Console.WriteLine("Your menu: ");
-
+                PrintCafeWelcome("asian");
                 PrintMenu(asianDishes);
 
                 Console.WriteLine();
@@ -137,6 +133,12 @@ namespace Cafes
                 Console.WriteLine("The door sign is turned");
                 Thread.Sleep(200);
                 Console.WriteLine("Cafes are opened now!");
+            }
+            void PrintCafeWelcome(string type)
+            {
+
+                Console.WriteLine("Welcome to {0} cafe!", type);
+                Console.WriteLine("Our menu: ");
             }
             void PrintMenu(List<Dish> dishes)
             {
