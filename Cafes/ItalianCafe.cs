@@ -34,14 +34,17 @@ namespace Cafes
         public ItalianCafe()
         {
         }
-        public override void CookFirst() {
-            
+        public override void CookFirst()
+        {
+            Console.WriteLine("soup cooked");
         }
-        public override void CookSecond() {
-            
+        public override void CookSecond()
+        {
+            Console.WriteLine("pizza cooked");
         }
-        public override void CookDesert() {
-            
+        public override void CookDesert()
+        {
+
         }
 
     }

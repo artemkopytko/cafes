@@ -34,5 +34,17 @@ namespace Cafes
         public AsianCafe()
         {
         }
+        public override void CookFirst()
+        {
+
+        }
+        public override void CookSecond()
+        {
+
+        }
+        public override void CookDesert()
+        {
+
+        }
     }
 }
