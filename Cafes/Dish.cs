@@ -33,7 +33,7 @@ namespace Cafes
             }
             PrintLine();
         }
-        public void PrintLine()
+        private void PrintLine()
         {
             Console.WriteLine("=========================");
         }
@@ -53,7 +53,10 @@ namespace Cafes
         {
             return this.cookingTime;
         }
-
+        public List<Ingredient> GetIngredients()
+        {
+            return this.ingredients;
+        }
         public double GetPrice(List<Ingredient> ingredients)
         {
             double totalPrice = 0.0;
@@ -62,6 +65,11 @@ namespace Cafes
                 totalPrice += ingredient.GetPrice();
             }
             return totalPrice;
+        }
+
+        public string GetDishName()
+        {
+            return this.name;
         }
 
     }
