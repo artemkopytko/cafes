@@ -195,29 +195,10 @@ namespace Cafes
                 goto chooseCafe;
             }
 
-            //for (int i = 0; i < 25; i += 1)
-            //{
-            //    Console.WriteLine();
-            //}
             goto chooseCafe;
-            /* TODO : 
-             * Логика клиента.
-             * Выбираем кафе.
-             * Выбираем блюдо.
-             * Возвращаемся к меню.
-             * Выбираем блюдо.
-             * Возвращаемся к меню.
-             * Возвращаемся к выбору кафе.
-             * Завершаем программу.
-             */
-            //italianCafe.GetDish("Minestrone");
-            //Console.WriteLine("\n");
-            //italianCafe.GetDish("Pizza");
-            //Console.WriteLine("\n");
-            //italianCafe.GetDish("Tiramisu");
-            //Console.WriteLine("\n");
 
-            //Console.ReadLine();
+            // METHODS
+
             void PrintCafeOnStart()
             {
                 Console.WriteLine("Cafes are closed...");
