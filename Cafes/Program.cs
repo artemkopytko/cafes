@@ -20,6 +20,7 @@ namespace Cafes
             String chosenDish = "";
             String extraDish = "";
             String payForOrder = "";
+
         chooseCafe:
             chosenDishes.Clear();
             do

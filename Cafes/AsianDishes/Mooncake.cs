@@ -17,5 +17,9 @@ namespace Cafes.AsianDishes
             cookingTime = 40;
             price = GetPrice(ingredients);
         }
+        public override void Request()
+        {
+            Console.WriteLine("Original {0}", this.name);
+        }
     }
 }

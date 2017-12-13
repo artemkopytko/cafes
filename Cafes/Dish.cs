@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Cafes
 {
-    public class Dish
+    public class Dish : IDish
     {
         protected string name = "";
         protected List<Ingredient> ingredients = new List<Ingredient>();
@@ -14,6 +14,11 @@ namespace Cafes
 
         public Dish()
         {
+        }
+
+        public override void Request()
+        {
+            Console.WriteLine("Dish");
         }
 
         public void Configure()

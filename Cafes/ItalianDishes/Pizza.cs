@@ -18,5 +18,9 @@ namespace Cafes.ItalianDishes
             cookingTime = 15;
             price = GetPrice(ingredients);
         }
+        public override void Request()
+        {
+            Console.WriteLine("Original {0}", this.name);
+        }
     }
 }

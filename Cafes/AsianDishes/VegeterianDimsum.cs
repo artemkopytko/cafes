@@ -4,10 +4,10 @@ using Cafes.Ingredients.Common;
 
 namespace Cafes.AsianDishes
 {
-    public class Dimsum : Dish
+    public class VegetarianDimsum : Dish
     {
 
-        public Dimsum()
+        public VegetarianDimsum()
         {
 
             name = "Dimsum";

@@ -1,23 +1,21 @@
 ﻿using System;
-using Cafes.Ingredients.Asian;
+using Cafes.Ingredients.Italian;
 using Cafes.Ingredients.Common;
 
-namespace Cafes.AsianDishes
+namespace Cafes.ItalianDishes
 {
-    public class Dimsum : Dish
+    public class VegetarianPizza : Dish
     {
-
-        public Dimsum()
+        public VegetarianPizza()
         {
-
-            name = "Dimsum";
-            ingredients.Add(new Shrimps());
+            name = "Pizza";
             ingredients.Add(new Dough());
-            ingredients.Add(new Spice());
             ingredients.Add(new Flour());
-            cookingTime = 30;
+            ingredients.Add(new Cheese());
+            ingredients.Add(new Sauce());
+            ingredients.Add(new Spice());
+            cookingTime = 15;
             price = GetPrice(ingredients);
-
         }
         public override void Request()
         {
