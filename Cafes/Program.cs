@@ -20,6 +20,8 @@ namespace Cafes
             String chosenDish = "";
             String extraDish = "";
             String payForOrder = "";
+            Random rnd = new Random();
+            int randomNumber = 0;
 
         chooseCafe:
             chosenDishes.Clear();
@@ -35,13 +37,34 @@ namespace Cafes
                 Dish minestrone = new Minestrone();
                 Dish pizza = new Pizza();
                 Dish tiramisu = new Tiramisu();
+                VegetarianPizza vegetarianPizza = new VegetarianPizza();
                 List<Dish> italianDishes = new List<Dish> { minestrone, pizza, tiramisu };
 
                 PrintLine();
                 PrintCafeWelcome("italian");
+            /*
+            Console.WriteLine("Cooking time: {0}", pizza.GetCookingTime());
+            Console.WriteLine("Cooking time vegan: {0}", vegetarianPizza.GetCookingTime());
+            // pizza.Request();
+            // vegetarianPizza.Request();
+            Console.WriteLine("vegan pizza price: {0}", pizza.GetPrice(pizza.GetIngredients()));
+            Console.WriteLine("vegan pizza name: {0}", pizza.GetDishName());
+            Console.WriteLine("vegan pizza price: {0}", vegetarianPizza.GetPrice(vegetarianPizza.GetIngredients()));
+            Console.WriteLine("vegan pizza name: {0}", vegetarianPizza.GetDishName());*/
 
             chooseItalianDish:
 
+                randomNumber = rnd.Next(1, 3);
+                if (randomNumber == 1)
+                {
+                    italianDishes = new List<Dish> { minestrone, pizza, tiramisu };
+                }
+                else
+                {
+                    Console.WriteLine("Sorry, meat pizza is not avaliable now...");
+                    Console.WriteLine("But you can choose vegetarian one!");
+                    italianDishes = new List<Dish> { minestrone, vegetarianPizza, tiramisu };
+                }
                 PrintMenu(italianDishes);
                 Console.WriteLine("0) I want nothing\n");
 
@@ -122,12 +145,26 @@ namespace Cafes
                 Dish wonton = new Wonton();
                 Dish dimsum = new Dimsum();
                 Dish mooncake = new Mooncake();
+                Dish vegetarianDimsum = new VegetarianDimsum();
                 List<Dish> asianDishes = new List<Dish> { wonton, dimsum, mooncake };
 
                 PrintLine();
                 PrintCafeWelcome("asian");
 
             chooseAsianDish:
+
+                randomNumber = rnd.Next(1, 3);
+                if (randomNumber == 1)
+                {
+                    asianDishes = new List<Dish> { wonton, dimsum, mooncake };
+                }
+                else
+                {
+                    Console.WriteLine("Sorry, fish dimsum is not avaliable now...");
+                    Console.WriteLine("But you can choose vegetarian one!");
+                    asianDishes = new List<Dish> { wonton, vegetarianDimsum, mooncake };
+                }
+
 
                 PrintMenu(asianDishes);
                 Console.WriteLine("0) I want nothing\n");

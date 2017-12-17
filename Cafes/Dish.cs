@@ -16,9 +16,9 @@ namespace Cafes
         {
         }
 
-        public override void Request()
+        public override int GetCookingTime()
         {
-            Console.WriteLine("Dish");
+            return this.cookingTime;
         }
 
         public void Configure()
@@ -55,10 +55,10 @@ namespace Cafes
         {
             Console.WriteLine("Dressing is ready");
         }
-        public int GetCookingTime()
+        /*public int GetCookingTime()
         {
             return this.cookingTime;
-        }
+        }*/
         public List<Ingredient> GetIngredients()
         {
             return this.ingredients;

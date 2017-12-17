@@ -6,9 +6,10 @@ namespace Cafes.ItalianDishes
 {
     public class VegetarianPizza : Dish
     {
+        Pizza pizza = new Pizza();
         public VegetarianPizza()
         {
-            name = "Pizza";
+            name = "Vegan Pizza";
             ingredients.Add(new Dough());
             ingredients.Add(new Flour());
             ingredients.Add(new Cheese());
@@ -16,10 +17,12 @@ namespace Cafes.ItalianDishes
             ingredients.Add(new Spice());
             cookingTime = 15;
             price = GetPrice(ingredients);
+
+            // Console.WriteLine("Veg pizza initialized");
         }
-        public override void Request()
+        public override int GetCookingTime()
         {
-            Console.WriteLine("Original {0}", this.name);
+            return pizza.GetCookingTime();
         }
     }
 }

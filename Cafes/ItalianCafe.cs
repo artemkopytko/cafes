@@ -24,6 +24,9 @@ namespace Cafes
                 case "Tiramisu":
                     dish = new Tiramisu();
                     break;
+                case "Vegan Pizza":
+                    dish = new VegetarianPizza();
+                    break;
                 default:
                     Console.WriteLine("Error");
                     break;

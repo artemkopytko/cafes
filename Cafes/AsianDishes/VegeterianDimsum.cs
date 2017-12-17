@@ -6,12 +6,11 @@ namespace Cafes.AsianDishes
 {
     public class VegetarianDimsum : Dish
     {
-
+        Dimsum dimsum = new Dimsum();
         public VegetarianDimsum()
         {
 
-            name = "Dimsum";
-            ingredients.Add(new Shrimps());
+            name = "Vegan Dimsum";
             ingredients.Add(new Dough());
             ingredients.Add(new Spice());
             ingredients.Add(new Flour());
@@ -19,9 +18,10 @@ namespace Cafes.AsianDishes
             price = GetPrice(ingredients);
 
         }
-        public override void Request()
+
+        public override int GetCookingTime()
         {
-            Console.WriteLine("Original {0}", this.name);
+            return dimsum.GetCookingTime();
         }
     }
 }

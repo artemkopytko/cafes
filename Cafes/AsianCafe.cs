@@ -24,6 +24,9 @@ namespace Cafes
                 case "Mooncake":
                     dish = new Mooncake();
                     break;
+                case "Vegan Dimsum":
+                    dish = new VegetarianDimsum();
+                    break;
                 default:
                     Console.WriteLine("Error");
                     break;
