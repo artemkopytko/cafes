@@ -134,6 +134,10 @@ namespace Cafes
                             italianCafe.CookDesert();
                             italianCafe.ServeDesert();
                             break;
+                        case "Vegan Pizza":
+                            italianCafe.CookSecond();
+                            italianCafe.ServeSecond();
+                            break;
                         default:
                             Console.WriteLine("Error");
                             break;
@@ -222,7 +226,30 @@ namespace Cafes
                 foreach (Dish dish in chosenDishes)
                 {
                     asianCafe.GetDish(dish.GetDishName());
+                    switch (dish.GetDishName())
+                    {
+                        case "Wonton":
+                            asianCafe.CookFirst();
+                            asianCafe.ServeFirst();
+                            break;
+                        case "Dimsum":
+                            asianCafe.CookSecond();
+                            asianCafe.ServeSecond();
+                            break;
+                        case "Mooncake":
+                            asianCafe.CookDesert();
+                            asianCafe.ServeDesert();
+                            break;
+                        case "Vegan Dimsum":
+                            asianCafe.CookSecond();
+                            asianCafe.ServeSecond();
+                            break;
+                        default:
+                            Console.WriteLine("Error");
+                            break;
+                    }
                 }
+
 
             }
             else

@@ -28,6 +28,8 @@ namespace Cafes
                     dish = new VegetarianPizza();
                     break;
                 default:
+
+                    Console.WriteLine("Here");
                     Console.WriteLine("Error");
                     break;
             }
