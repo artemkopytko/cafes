@@ -6,8 +6,10 @@ using System.Threading;
 
 namespace Cafes
 {
-    class Program
+    public class Program
     {
+
+
         static void Main(string[] args)
         {
 
@@ -39,7 +41,8 @@ namespace Cafes
                 Dish tiramisu = new Tiramisu();
                 VegetarianPizza vegetarianPizza = new VegetarianPizza();
                 List<Dish> italianDishes = new List<Dish> { minestrone, pizza, tiramisu };
-
+                Console.WriteLine(vegetarianPizza.GetPrice(vegetarianPizza.GetIngredients()));
+                Console.WriteLine(pizza.GetPrice(pizza.GetIngredients()));
                 PrintLine();
                 PrintCafeWelcome("italian");
             /*
@@ -75,7 +78,8 @@ namespace Cafes
                 } while (chosenDish != "0" && chosenDish != "1" && chosenDish != "2" && chosenDish != "3");
                 if (chosenDish == "0")
                 {
-                    if (chosenDishes.Count > 0)
+                    // TODO
+                    if (HasDishes(dishList: chosenDishes))
                     {
                         goto italianCheckout;
                     }
@@ -180,7 +184,7 @@ namespace Cafes
                 } while (chosenDish != "0" && chosenDish != "1" && chosenDish != "2" && chosenDish != "3");
                 if (chosenDish == "0")
                 {
-                    if (chosenDishes.Count > 0)
+                    if (HasDishes(dishList: chosenDishes))
                     {
                         goto asianCheckout;
                     }
@@ -356,11 +360,24 @@ namespace Cafes
                 Console.WriteLine("Hope to see you again!");
                 Console.WriteLine("Have a nice day");
             }
+            bool HasDishes(List<Dish> dishList)
+            {
+                if (dishList.Count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
             void LeaveCafe()
             {
                 Console.WriteLine("Thanks for coming!");
                 Console.WriteLine("See you soon!");
             }
         }
+
     }
 }
